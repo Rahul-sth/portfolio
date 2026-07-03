@@ -1,126 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Me</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rahul Shrestha | Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-      body {
-        background-image: url("https://i.postimg.cc/GhZX2wzt/pexels-enginakyurt-1435752.jpg");
-        background-size: cover;
-        background-position: center;
-        color: #ffffff;
-        font-family: Arial, sans-serif;
-        text-align: center;
-        padding: 50px;
-        backdrop-filter: brightness(0.6);
-        min-height: 100vh;
-      }
-
-      h1 {
-        color: #00ffcc;
-        text-shadow: 2px 2px 5px #000;
-      }
-
-      button {
-        padding: 10px 20px;
-        font-size: 16px;
-        background-color: #00ffcc;
-        color: #2b2828;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        margin-top: 20px;
-      }
-
-      button:hover {
-        background-color: #00ccaa;
-      }
-
-      #output {
-        margin-top: 30px;
-        font-size: 18px;
-        line-height: 1.6;
-        display: inline-block;
-      }
-
-      .info-line {
-        opacity: 0;
-        transform: translateX(-30px);
-        animation: slideIn 0.6s forwards;
-      }
-
-      .info-line:nth-child(1) {
-        animation-delay: 0.1s;
-      }
-      .info-line:nth-child(2) {
-        animation-delay: 0.3s;
-      }
-      .info-line:nth-child(3) {
-        animation-delay: 0.5s;
-      }
-      .info-line:nth-child(4) {
-        animation-delay: 0.7s;
-      }
-      .info-line:nth-child(5) {
-        animation-delay: 0.9s;
-      }
-      .info-line:nth-child(6) {
-        animation-delay: 1.1s;
-      }
-
-      @keyframes slideIn {
-        to {
-          opacity: 1;
-          transform: translateX(0);
+        :root {
+            --neon-cyan: #00ffcc;
+            --glass-bg: rgba(5, 5, 5, 0.8);
         }
-      }
 
-      #profile-pic {
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        object-fit: cover;
-        margin-bottom: 20px;
-        border: 3px solid #00ffcc;
-        opacity: 0;
-        transform: translateY(-20px);
-        animation: fadeSlideDown 0.8s forwards;
-        animation-delay: 0.1s;
-      }
-
-      @keyframes fadeSlideDown {
-        to {
-          opacity: 1;
-          transform: translateY(0);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
         }
-      }
+
+        body {
+            background-color: #000;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        #mainBg {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #000000, #0a0a2e);
+            transition: background 4s ease-in-out; 
+            position: relative;
+        }
+
+        /* Glassmorphic Profile Card */
+        .profile-card {
+            position: relative;
+            z-index: 10;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 255, 204, 0.3);
+            padding: 50px 40px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 420px;
+            width: 90%;
+            box-shadow: 0 0 50px rgba(0, 255, 204, 0.1);
+        }
+
+        .profile-img {
+            width: 170px;
+            height: 170px;
+            border-radius: 15%;
+            border: 2px solid var(--neon-cyan);
+            margin-bottom: 25px;
+            object-fit: cover;
+            box-shadow: 0 0 25px rgba(0, 255, 204, 0.3);
+        }
+
+        h1 {
+            font-family: 'Courier New', monospace;
+            font-size: 2rem;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        /* Typewriter text style */
+        .typing-container {
+            font-family: 'Courier New', monospace;
+            color: var(--neon-cyan);
+            font-size: 0.95rem;
+            min-height: 20px;
+            margin-bottom: 30px;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            background-color: var(--neon-cyan);
+            margin-left: 5px;
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 500;
+            border: 1px solid rgba(0, 255, 204, 0.1);
+            transition: 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--neon-cyan);
+            color: #000;
+            box-shadow: 0 0 20px rgba(0, 255, 204, 0.5);
+            transform: translateY(-2px);
+        }
     </style>
-  </head>
-  <body>
-    <h1>Welcome to My Website</h1>
-    <p>Click the button to know about me!</p>
-    <button id="revealBtn" onclick="showMessage()">Click Me</button>
+</head>
+<body>
 
-    <div id="output"></div>
+    <div id="mainBg">
+        <div class="profile-card">
+            <img src="https://i.postimg.cc/nVGbk5mC/IMG-20250623-180234.jpg" class="profile-img">
+            
+            <h1>Rahul Shrestha</h1>
+            
+            <div class="typing-container">
+                <span id="typewriter"></span><span class="cursor">|</span>
+            </div>
+
+            <div class="links-container">
+                <a href="https://www.facebook.com/regan.shrestha.225" class="social-link"><i class="fab fa-facebook-f"></i> FACEBOOK</a>
+                <a href="https://www.instagram.com/mr_stha_0001/" class="social-link"><i class="fab fa-instagram"></i> INSTAGRAM</a>
+                <a href="https://github.com/Rahul-sth" class="social-link"><i class="fab fa-github"></i> GITHUB</a>
+            </div>
+        </div>
+    </div>
 
     <script>
-      function showMessage() {
-        const output = document.getElementById("output");
-        const button = document.getElementById("revealBtn");
+        // Automatic Background Colors
+        const techThemes = [
+            ['#000000', '#0f0c29'], 
+            ['#050005', '#200122'], 
+            ['#000428', '#002a4d'], 
+            ['#080e10', '#1a2a2f']
+        ];
+        let themeIdx = 0;
+        setInterval(() => {
+            themeIdx = (themeIdx + 1) % techThemes.length;
+            document.getElementById('mainBg').style.background = `linear-gradient(135deg, ${techThemes[themeIdx][0]}, ${techThemes[themeIdx][1]})`;
+        }, 5000);
 
-        output.innerHTML = `
-    <img src="https://i.postimg.cc/nVGbk5mC/IMG-20250623-180234.jpg" alt="My Photo" id="profile-pic" />
-    <div class="info-line"><strong>👋 Hello!</strong></div>
-    <div class="info-line">My name is <strong>Rahul Shrestha</strong>.</div>
-    <div class="info-line">I am passionate about programming and web development.</div>
-    <div class="info-line">📧 Email: reganshrestha057@gmail.com</div>
-  
-    <div class="info-line">I love exploring technology and building creative solutions! 🚀</div>
-  `;
+        // Typewriter Effect
+        const textElement = document.getElementById('typewriter');
+        const phrases = [
+            "Passionate Programmer",
+            "Solving complex problems...",
+            "Building the future with code.",
+            "Always learning, always coding."
+        ];
+        let phraseIdx = 0;
+        let charIdx = 0;
+        let isDeleting = false;
 
-        button.remove();
-      }
+        function type() {
+            const currentPhrase = phrases[phraseIdx];
+            if (isDeleting) {
+                textElement.textContent = currentPhrase.substring(0, charIdx - 1);
+                charIdx--;
+            } else {
+                textElement.textContent = currentPhrase.substring(0, charIdx + 1);
+                charIdx++;
+            }
+
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIdx === currentPhrase.length) {
+                isDeleting = true;
+                typeSpeed = 2000; // Wait at end
+            } else if (isDeleting && charIdx === 0) {
+                isDeleting = false;
+                phraseIdx = (phraseIdx + 1) % phrases.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(type, typeSpeed);
+        }
+
+        document.addEventListener('DOMContentLoaded', type);
     </script>
-  </body>
+</body>
 </html>
